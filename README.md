@@ -37,7 +37,17 @@ cp .env.example .env
 
 ## Query sets
 - `searchbench/queries/public.json` - 50 curated, verifiable questions.
+- `searchbench/queries/hard.json` - hard, evidence-gated questions.
 - `searchbench/queries/private.json` - personal set (gitignored). Copy from `searchbench/queries/private.json.template`.
+
+
+## Hard benchmark
+Run the evidence-gated hard set:
+
+```bash
+./scripts/searchbench run --queries hard
+./scripts/searchbench summary
+```
 
 ## Results
 Reports and history are written to:
@@ -56,6 +66,9 @@ Reports and history are written to:
 
 ## Configuration
 Timeouts live in `config.toml` and can be recalibrated from history:
+Optional environment knobs:
+- `QUERY_CONCURRENCY` (default 2) controls how many queries run in parallel.
+- `JUDGE_CONCURRENCY` (default 6) caps concurrent judge calls.
 ```bash
 ./scripts/searchbench calibrate
 ./scripts/searchbench calibrate --apply

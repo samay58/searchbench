@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 import math
 import time
 from dataclasses import dataclass
@@ -10,6 +11,9 @@ from typing import Iterable
 from searchbench.config import Settings, timeout_for
 from searchbench.providers.base import Provider, SearchResult
 from searchbench.queries import Query
+
+
+DEFAULT_QUERY_CONCURRENCY = int(os.getenv("QUERY_CONCURRENCY", "2"))
 
 
 @dataclass(frozen=True)
@@ -49,19 +53,21 @@ async def run_benchmark(
     started = time.perf_counter()
     started_at = datetime.now(timezone.utc).isoformat()
 
-    results: list[QueryResult] = []
-    for query in queries_list:
-        tasks = []
-        for provider in providers_list:
-            timeout = timeout_for(provider.name, settings)
-            tasks.append(_run_provider(provider, query, timeout))
-        provider_results = await asyncio.gather(*tasks)
-        results.append(
-            QueryResult(
+    semaphore = asyncio.Semaphore(max(1, DEFAULT_QUERY_CONCURRENCY))
+
+    async def run_query(query: Query) -> QueryResult:
+        async with semaphore:
+            tasks = []
+            for provider in providers_list:
+                timeout = timeout_for(provider.name, settings)
+                tasks.append(_run_provider(provider, query, timeout))
+            provider_results = await asyncio.gather(*tasks)
+            return QueryResult(
                 query=query,
                 results={res_key: res for res_key, res in provider_results},
             )
-        )
+
+    results = list(await asyncio.gather(*(run_query(query) for query in queries_list)))
 
     duration_s = time.perf_counter() - started
     provider_stats = _summarize_provider_stats(results, providers_list)

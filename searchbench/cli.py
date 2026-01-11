@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 from typing import Iterable
 
+import click
 import typer
 
 from searchbench.calibrate import load_history, suggest_timeouts, update_config_timeouts
@@ -28,9 +29,9 @@ PROVIDER_ENV = {
 
 @app.command()
 def run(
-    providers: str = typer.Option("all", help="Comma-separated: exa,parallel,brave,linkup,tavily"),
-    queries: str = typer.Option("public", help="Query set: public, private, or path"),
-    output: str = typer.Option("results/", help="Output directory"),
+    providers: str = typer.Option("all", help="Comma-separated: exa,parallel,brave,linkup,tavily", is_flag=False),
+    queries: str = typer.Option("public", help="Query set: public, hard, private, or path", is_flag=False),
+    output: str = typer.Option("results/", help="Output directory", is_flag=False),
 ) -> None:
     settings = load_settings()
     provider_names = _parse_providers(providers)
@@ -67,8 +68,8 @@ def run(
 
 @app.command()
 def quick(
-    providers: str = typer.Option("all", help="Comma-separated provider names"),
-    queries: str = typer.Option("public", help="Query set: public, private, or path"),
+    providers: str = typer.Option("all", help="Comma-separated provider names", is_flag=False),
+    queries: str = typer.Option("public", help="Query set: public, hard, private, or path", is_flag=False),
 ) -> None:
     settings = load_settings()
     provider_names = _parse_providers(providers)
@@ -103,7 +104,7 @@ def quick(
 
 
 @app.command()
-def history(last: int = typer.Option(10, help="Number of recent runs to show")) -> None:
+def history(last: int = typer.Option(10, help="Number of recent runs to show", is_flag=False)) -> None:
     settings = load_settings()
     history_path = settings.results_dir / "history.json"
     data = load_history(history_path)
@@ -197,8 +198,8 @@ def report(
 @app.command()
 def add(
     query: str,
-    category: str = typer.Option("custom", help="Category for the private query"),
-    notes: str = typer.Option("", help="Optional notes for judging"),
+    category: str = typer.Option("custom", help="Category for the private query", is_flag=False),
+    notes: str = typer.Option("", help="Optional notes for judging", is_flag=False),
 ) -> None:
     private_path = Path(__file__).parent / "queries" / "private.json"
     if private_path.exists():
@@ -414,6 +415,35 @@ def _parse_providers(raw: str) -> list[str]:
     return names
 
 
+def _fix_click_flags(command: click.Command) -> None:
+    if isinstance(command, click.Group):
+        for subcommand in command.commands.values():
+            _fix_click_flags(subcommand)
+    for param in command.params:
+        if not isinstance(param, click.Option):
+            continue
+        if isinstance(param.type, click.types.BoolParamType):
+            continue
+        if param.is_flag:
+            param.is_flag = False
+            param.count = False
+            param.flag_value = None
+
+
+def _patch_click_metavar() -> None:
+    if getattr(click.Parameter.make_metavar, "_searchbench_patched", False):
+        return
+    original = click.Parameter.make_metavar
+
+    def make_metavar(self: click.Parameter, ctx: click.Context | None = None) -> str:
+        if ctx is None:
+            ctx = click.Context(click.Command("searchbench"))
+        return original(self, ctx)
+
+    make_metavar._searchbench_patched = True  # type: ignore[attr-defined]
+    click.Parameter.make_metavar = make_metavar  # type: ignore[assignment]
+
+
 def _init_providers(names: Iterable[str]):
     providers = []
     for name in names:
@@ -421,5 +451,12 @@ def _init_providers(names: Iterable[str]):
     return providers
 
 
+def main() -> None:
+    _patch_click_metavar()
+    command = typer.main.get_command(app)
+    _fix_click_flags(command)
+    command()
+
+
 if __name__ == "__main__":
-    app()
+    main()

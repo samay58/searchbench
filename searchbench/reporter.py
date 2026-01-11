@@ -229,6 +229,8 @@ def render_html(
                 f"<div class=\"answer\">{safe(_truncate(answer, 220))}</div>"
                 "</div>"
             )
+        evidence_text = _format_evidence(item.query.evidence)
+        evidence_html = f"<div class=\"evidence\">{safe(evidence_text)}</div>" if evidence_text else ""
         detail_cards.append(
             "<div class=\"query-card\">"
             "<div class=\"query-meta\">"
@@ -237,18 +239,22 @@ def render_html(
             "</div>"
             f"<div class=\"query-text\">{safe(item.query.text)}</div>"
             f"<div class=\"expected\">Expected: {safe('; '.join(item.query.expected or ['None']))}</div>"
-            "<div class=\"answers\">"
+            + evidence_html
+            + "<div class=\"answers\">"
             + "".join(provider_rows)
             + "</div>"
             "</div>"
         )
 
+    has_evidence = any(item.query.evidence for item in graded.graded_queries)
     methodology = (
         f"This benchmark ran {run.query_count} curated questions across {len(run.providers)} providers. "
         f"Answers were graded by {judge_model} using binary correct/incorrect scoring with semantic equivalence. "
         "Latency is measured from request initiation to response completion. Costs are calculated using published "
         "pricing as of the report date."
     )
+    if has_evidence:
+        methodology += " Evidence gating is enforced for this run (citations and domain requirements)."
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -377,6 +383,11 @@ def render_html(
     }}
     .expected {{
       font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }}
+    .evidence {{
+      font-size: 0.85rem;
       color: var(--muted);
       margin-bottom: 0.75rem;
     }}
@@ -521,6 +532,22 @@ def _provider_config_items(summaries: Iterable[ProviderSummary]) -> list[str]:
         )
     return items
 
+
+
+
+def _format_evidence(evidence) -> str:
+    if not evidence:
+        return ""
+    parts = []
+    if evidence.min_citations:
+        parts.append(f"min {evidence.min_citations} citations")
+    if evidence.required_domains:
+        parts.append("domains: " + ", ".join(evidence.required_domains))
+    if evidence.required_sources:
+        parts.append("sources: " + ", ".join(evidence.required_sources))
+    if not parts:
+        return ""
+    return "Evidence: " + "; ".join(parts)
 
 def _format_pct(value: float) -> str:
     return f"{value * 100:.0f}%"

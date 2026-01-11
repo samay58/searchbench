@@ -6,6 +6,7 @@
 ## Build, Test, and Development Commands
 - `./.venv/bin/python -m pip install -r requirements.txt` - install runtime dependencies.
 - `./scripts/searchbench run` - full evaluation run using the public query set.
+- `./scripts/searchbench run --queries hard` - run the hard, evidence-gated benchmark.
 - `./scripts/searchbench quick` - 10-query smoke check.
 - `./scripts/searchbench history` - list recent benchmark runs.
 - `./scripts/searchbench summary` - show the latest run summary table.

@@ -2,6 +2,7 @@ import os
 import unittest
 
 from searchbench.judge import Judge
+from searchbench.queries import EvidenceRequirement
 
 
 class TestJudge(unittest.TestCase):
@@ -17,6 +18,18 @@ class TestJudge(unittest.TestCase):
         judge = Judge(model="test-model")
         verdict = judge._parse_verdict("PLAUSIBLE: cites sources", False)
         self.assertEqual(verdict, ("plausible", "cites sources"))
+
+    def test_evidence_gate_missing_domain(self):
+        evidence = EvidenceRequirement(min_citations=1, required_domains=("sec.gov",))
+        passed, notes = Judge._check_evidence(["https://example.com"], evidence)
+        self.assertFalse(passed)
+        self.assertIn("missing domains", notes)
+
+    def test_evidence_gate_min_citations(self):
+        evidence = EvidenceRequirement(min_citations=2)
+        passed, notes = Judge._check_evidence(["https://sec.gov"], evidence)
+        self.assertFalse(passed)
+        self.assertIn("only 1 citation", notes)
 
     def test_fallback_number_equivalence(self):
         judge = Judge(model="test-model")

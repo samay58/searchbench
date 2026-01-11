@@ -1,0 +1,1356 @@
+{
+  "queries": [
+    {
+      "id": "hard_01",
+      "query": "Which company acquired Instagram, in what year, and what was the announced price?",
+      "expected": [
+        "Facebook acquired Instagram in 2012",
+        "$1 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_02",
+      "query": "Which company acquired WhatsApp, in what year, and what was the announced price?",
+      "expected": [
+        "Facebook acquired WhatsApp in 2014",
+        "$19 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_03",
+      "query": "Which company acquired LinkedIn, in what year, and what was the announced price?",
+      "expected": [
+        "Microsoft acquired LinkedIn in 2016",
+        "$26.2 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_04",
+      "query": "Which company acquired GitHub, in what year, and what was the announced price?",
+      "expected": [
+        "Microsoft acquired GitHub in 2018",
+        "$7.5 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_05",
+      "query": "Which company acquired YouTube, in what year, and what was the announced price?",
+      "expected": [
+        "Google acquired YouTube in 2006",
+        "$1.65 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_06",
+      "query": "Which company acquired Whole Foods Market, in what year, and what was the announced price?",
+      "expected": [
+        "Amazon acquired Whole Foods in 2017",
+        "$13.7 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_07",
+      "query": "Which company acquired Pixar, in what year, and what was the announced price?",
+      "expected": [
+        "Disney acquired Pixar in 2006",
+        "$7.4 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_08",
+      "query": "Which company acquired Red Hat, in what year, and what was the announced price?",
+      "expected": [
+        "IBM acquired Red Hat in 2019",
+        "$34 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_09",
+      "query": "Which company acquired Skype, in what year, and what was the announced price?",
+      "expected": [
+        "Microsoft acquired Skype in 2011",
+        "$8.5 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_10",
+      "query": "Which company acquired Motorola Mobility, in what year, and what was the announced price?",
+      "expected": [
+        "Google acquired Motorola Mobility in 2011",
+        "$12.5 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_11",
+      "query": "Which company acquired Activision Blizzard, in what year, and what was the announced price?",
+      "expected": [
+        "Microsoft acquired Activision Blizzard in 2023",
+        "$68.7 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_12",
+      "query": "Which company acquired Slack, in what year, and what was the announced price?",
+      "expected": [
+        "Salesforce acquired Slack in 2021",
+        "$27.7 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_13",
+      "query": "Which company acquired Tableau, in what year, and what was the announced price?",
+      "expected": [
+        "Salesforce acquired Tableau in 2019",
+        "$15.7 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_14",
+      "query": "Which company acquired Beats Electronics, in what year, and what was the announced price?",
+      "expected": [
+        "Apple acquired Beats in 2014",
+        "$3 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_15",
+      "query": "Which company acquired VMware, in what year, and what was the announced price?",
+      "expected": [
+        "Broadcom acquired VMware in 2023",
+        "$69 billion"
+      ],
+      "category": "acquisition",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "sec.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_16",
+      "query": "What mission first landed humans on the Moon, and on what date did the landing occur?",
+      "expected": [
+        "Apollo 11",
+        "1969-07-20"
+      ],
+      "category": "space",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_17",
+      "query": "Which space shuttle mission launched the Hubble Space Telescope, and on what date?",
+      "expected": [
+        "STS-31",
+        "1990-04-24"
+      ],
+      "category": "space",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_18",
+      "query": "On what date did New Horizons fly by Pluto, and what was the spacecraft name?",
+      "expected": [
+        "New Horizons",
+        "2015-07-14"
+      ],
+      "category": "space",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_19",
+      "query": "What was the landing date of the Curiosity rover on Mars, and which mission delivered it?",
+      "expected": [
+        "2012-08-06",
+        "Mars Science Laboratory"
+      ],
+      "category": "space",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_20",
+      "query": "What was the landing date of the Perseverance rover on Mars, and which mission delivered it?",
+      "expected": [
+        "2021-02-18",
+        "Mars 2020"
+      ],
+      "category": "space",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_21",
+      "query": "What was the launch date of the James Webb Space Telescope, and what launch vehicle was used?",
+      "expected": [
+        "2021-12-25",
+        "Ariane 5"
+      ],
+      "category": "space",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_22",
+      "query": "Which spacecraft launched on 1977-09-05, and which planet was its first flyby?",
+      "expected": [
+        "Voyager 1",
+        "Jupiter"
+      ],
+      "category": "space",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_23",
+      "query": "What was the launch date of Parker Solar Probe, and what record was it designed to set?",
+      "expected": [
+        "2018-08-12",
+        "closest approach to the Sun"
+      ],
+      "category": "space",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_24",
+      "query": "What was the name of the first module of the International Space Station, and when was it launched?",
+      "expected": [
+        "Zarya",
+        "1998-11-20"
+      ],
+      "category": "space",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_25",
+      "query": "What was the launch date of Cassini-Huygens, and on what date did it enter orbit around Saturn?",
+      "expected": [
+        "1997-10-15",
+        "2004-07-01"
+      ],
+      "category": "space",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_26",
+      "query": "Which RFC defines HTTP/2, and in what year was it published?",
+      "expected": [
+        "RFC 7540",
+        "2015"
+      ],
+      "category": "standards",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 1,
+        "required_domains": [
+          "rfc-editor.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_27",
+      "query": "Which RFC defines TLS 1.3, and in what year was it published?",
+      "expected": [
+        "RFC 8446",
+        "2018"
+      ],
+      "category": "standards",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 1,
+        "required_domains": [
+          "rfc-editor.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_28",
+      "query": "Which RFC defines QUIC, and in what year was it published?",
+      "expected": [
+        "RFC 9000",
+        "2021"
+      ],
+      "category": "standards",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 1,
+        "required_domains": [
+          "rfc-editor.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_29",
+      "query": "Which RFC defines HTTP/3, and in what year was it published?",
+      "expected": [
+        "RFC 9114",
+        "2022"
+      ],
+      "category": "standards",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 1,
+        "required_domains": [
+          "rfc-editor.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_30",
+      "query": "Which RFC defines OAuth 2.0, and in what year was it published?",
+      "expected": [
+        "RFC 6749",
+        "2012"
+      ],
+      "category": "standards",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 1,
+        "required_domains": [
+          "rfc-editor.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_31",
+      "query": "Which RFC defines JSON, and in what year was it published?",
+      "expected": [
+        "RFC 8259",
+        "2017"
+      ],
+      "category": "standards",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 1,
+        "required_domains": [
+          "rfc-editor.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_32",
+      "query": "Which RFC defines MIME, and in what year was it published?",
+      "expected": [
+        "RFC 2045",
+        "1996"
+      ],
+      "category": "standards",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 1,
+        "required_domains": [
+          "rfc-editor.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_33",
+      "query": "Which RFC defines the core DNS protocol, and in what year was it published?",
+      "expected": [
+        "RFC 1034",
+        "1987"
+      ],
+      "category": "standards",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 1,
+        "required_domains": [
+          "rfc-editor.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_34",
+      "query": "Which RFC defines SMTP, and in what year was it published?",
+      "expected": [
+        "RFC 5321",
+        "2008"
+      ],
+      "category": "standards",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 1,
+        "required_domains": [
+          "rfc-editor.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_35",
+      "query": "Which RFC defines IPv6, and in what year was it published?",
+      "expected": [
+        "RFC 8200",
+        "2017"
+      ],
+      "category": "standards",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 1,
+        "required_domains": [
+          "rfc-editor.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_36",
+      "query": "What year was the Treaty of Versailles signed, and which war did it formally end?",
+      "expected": [
+        "1919",
+        "World War I"
+      ],
+      "category": "treaty",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "yale.edu"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_37",
+      "query": "In what year was the Maastricht Treaty signed, and what entity did it establish?",
+      "expected": [
+        "1992",
+        "European Union"
+      ],
+      "category": "treaty",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "europa.eu"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_38",
+      "query": "In what year was the Lisbon Treaty signed, and in what year did it enter into force?",
+      "expected": [
+        "2007",
+        "2009"
+      ],
+      "category": "treaty",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "europa.eu"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_39",
+      "query": "In what year was the Paris Agreement adopted, and in what year did it enter into force?",
+      "expected": [
+        "2015",
+        "2016"
+      ],
+      "category": "treaty",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "unfccc.int"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_40",
+      "query": "In what year was the Kyoto Protocol adopted, and in what year did it enter into force?",
+      "expected": [
+        "1997",
+        "2005"
+      ],
+      "category": "treaty",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "unfccc.int"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_41",
+      "query": "In what year was the Montreal Protocol signed, and in what year did it enter into force?",
+      "expected": [
+        "1987",
+        "1989"
+      ],
+      "category": "treaty",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "unep.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_42",
+      "query": "Which agreement created the World Trade Organization, and in what year did it enter into force?",
+      "expected": [
+        "Marrakesh Agreement",
+        "1995"
+      ],
+      "category": "treaty",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "wto.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_43",
+      "query": "In what year was NAFTA signed, and in what year did it enter into force?",
+      "expected": [
+        "1992",
+        "1994"
+      ],
+      "category": "treaty",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "ustr.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_44",
+      "query": "In what year was the USMCA signed, and in what year did it enter into force?",
+      "expected": [
+        "2018",
+        "2020"
+      ],
+      "category": "treaty",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "ustr.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_45",
+      "query": "In what year was the United Nations Charter signed, and on what date did it enter into force?",
+      "expected": [
+        "1945",
+        "1945-10-24"
+      ],
+      "category": "treaty",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "un.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_46",
+      "query": "Which act created the U.S. Securities and Exchange Commission, and in what year was it enacted?",
+      "expected": [
+        "Securities Exchange Act of 1934",
+        "1934"
+      ],
+      "category": "law",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "congress.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_47",
+      "query": "Which act created the Federal Reserve System, and in what year was it enacted?",
+      "expected": [
+        "Federal Reserve Act",
+        "1913"
+      ],
+      "category": "law",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "federalreserve.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_48",
+      "query": "Which act created the Public Company Accounting Oversight Board (PCAOB), and in what year was it enacted?",
+      "expected": [
+        "Sarbanes-Oxley Act",
+        "2002"
+      ],
+      "category": "law",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "congress.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_49",
+      "query": "Which act created the Consumer Financial Protection Bureau (CFPB), and in what year was it enacted?",
+      "expected": [
+        "Dodd-Frank Act",
+        "2010"
+      ],
+      "category": "law",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "congress.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_50",
+      "query": "Which act repealed key Glass-Steagall provisions, and in what year was it enacted?",
+      "expected": [
+        "Gramm-Leach-Bliley Act",
+        "1999"
+      ],
+      "category": "law",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "congress.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_51",
+      "query": "In what year was the Americans with Disabilities Act signed into law, and what was its core purpose?",
+      "expected": [
+        "1990",
+        "prohibits discrimination based on disability"
+      ],
+      "category": "law",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "ada.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_52",
+      "query": "In what year was the Civil Rights Act enacted, and which title prohibits employment discrimination?",
+      "expected": [
+        "1964",
+        "Title VII"
+      ],
+      "category": "law",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "congress.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_53",
+      "query": "In what year was the Clean Air Act enacted, and which federal agency is primarily responsible for enforcement?",
+      "expected": [
+        "1970",
+        "Environmental Protection Agency"
+      ],
+      "category": "law",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "epa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_54",
+      "query": "In what year was the Clean Water Act enacted, and what is the law's main focus?",
+      "expected": [
+        "1972",
+        "water pollution control"
+      ],
+      "category": "law",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "epa.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_55",
+      "query": "Which act created the Federal Communications Commission, and in what year was it enacted?",
+      "expected": [
+        "Communications Act of 1934",
+        "1934"
+      ],
+      "category": "law",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "fcc.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_56",
+      "query": "In what year was the New York Stock Exchange founded, and what agreement is associated with its founding?",
+      "expected": [
+        "1792",
+        "Buttonwood Agreement"
+      ],
+      "category": "finance",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nyse.com"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_57",
+      "query": "In what year did NASDAQ begin operations, and what was its original role?",
+      "expected": [
+        "1971",
+        "electronic stock market"
+      ],
+      "category": "finance",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nasdaq.com"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_58",
+      "query": "In what year was the S&P 500 introduced, and what type of index is it?",
+      "expected": [
+        "1957",
+        "stock market index"
+      ],
+      "category": "finance",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "spglobal.com"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_59",
+      "query": "In what year was the Dow Jones Industrial Average first published, and by whom?",
+      "expected": [
+        "1896",
+        "Charles Dow"
+      ],
+      "category": "finance",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "wsj.com"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_60",
+      "query": "In what year was the Bretton Woods Conference held, and which two institutions did it create?",
+      "expected": [
+        "1944",
+        "International Monetary Fund",
+        "World Bank"
+      ],
+      "category": "finance",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "imf.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_61",
+      "query": "In what year was the euro introduced for non-cash transactions, and in what year did euro banknotes and coins begin circulation?",
+      "expected": [
+        "1999",
+        "2002"
+      ],
+      "category": "finance",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "ecb.europa.eu"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_62",
+      "query": "In what year did the United States suspend the dollar's convertibility to gold, and which president announced it?",
+      "expected": [
+        "1971",
+        "Richard Nixon"
+      ],
+      "category": "finance",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "federalreservehistory.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_63",
+      "query": "In what year was the FDIC established, and which act created it?",
+      "expected": [
+        "1933",
+        "Banking Act of 1933"
+      ],
+      "category": "finance",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "fdic.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_64",
+      "query": "In what year did the IMF begin operations, and in what year was it founded?",
+      "expected": [
+        "1947",
+        "1944"
+      ],
+      "category": "finance",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "imf.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_65",
+      "query": "In what year was the World Bank's IBRD established, and in what year did it begin operations?",
+      "expected": [
+        "1944",
+        "1946"
+      ],
+      "category": "finance",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "worldbank.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_66",
+      "query": "In what year was the DNA double helix structure published, and who were the two authors?",
+      "expected": [
+        "1953",
+        "James Watson",
+        "Francis Crick"
+      ],
+      "category": "science",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "nature.com"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_67",
+      "query": "In what year was the first transistor demonstrated, and at which laboratory?",
+      "expected": [
+        "1947",
+        "Bell Labs"
+      ],
+      "category": "science",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "bell-labs.com"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_68",
+      "query": "In what year was the first integrated circuit demonstrated, and who is credited with it?",
+      "expected": [
+        "1958",
+        "Jack Kilby"
+      ],
+      "category": "science",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "ti.com"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_69",
+      "query": "In what year was the first laser demonstrated, and who demonstrated it?",
+      "expected": [
+        "1960",
+        "Theodore Maiman"
+      ],
+      "category": "science",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "aps.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_70",
+      "query": "In what year was the first ARPANET message sent, and which institution sent it?",
+      "expected": [
+        "1969",
+        "UCLA"
+      ],
+      "category": "science",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "darpa.mil"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_71",
+      "query": "In what year was the first image of a black hole released, and which object was imaged?",
+      "expected": [
+        "2019",
+        "M87"
+      ],
+      "category": "science",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "eventhorizontelescope.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_72",
+      "query": "In what year was the Human Genome Project declared complete, and which U.S. agency leads its website?",
+      "expected": [
+        "2003",
+        "National Human Genome Research Institute"
+      ],
+      "category": "science",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "genome.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_73",
+      "query": "In what year was CRISPR-Cas9 genome editing first demonstrated, and in which journal was it published?",
+      "expected": [
+        "2012",
+        "Science"
+      ],
+      "category": "science",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "science.org"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_74",
+      "query": "In what year did the Wright brothers achieve the first powered flight, and where did it occur?",
+      "expected": [
+        "1903",
+        "Kitty Hawk"
+      ],
+      "category": "science",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "loc.gov"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    },
+    {
+      "id": "hard_75",
+      "query": "In what year was ENIAC unveiled, and at which university?",
+      "expected": [
+        "1946",
+        "University of Pennsylvania"
+      ],
+      "category": "science",
+      "difficulty": "hard",
+      "evidence": {
+        "min_citations": 2,
+        "required_domains": [
+          "upenn.edu"
+        ],
+        "required_sources": []
+      },
+      "notes": null
+    }
+  ]
+}

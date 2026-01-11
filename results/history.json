@@ -272,6 +272,166 @@
         }
       },
       "error_breakdown": {}
+    },
+    {
+      "date": "2026-01-11T19:16:36.050484+00:00",
+      "query_set": "hard",
+      "n_queries": 75,
+      "judge_model": "gpt-4o-mini",
+      "results": {
+        "linkup": {
+          "accuracy": 0.7467,
+          "avg_latency_ms": 3965,
+          "latency_p50_ms": 3956,
+          "latency_p95_ms": 4979,
+          "latency_p99_ms": 5199,
+          "total_cost_usd": 0.4125,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.linkup.so/v1/search",
+          "timeout_used": 25
+        },
+        "tavily": {
+          "accuracy": 0.36,
+          "avg_latency_ms": 301,
+          "latency_p50_ms": 285,
+          "latency_p95_ms": 360,
+          "latency_p99_ms": 378,
+          "total_cost_usd": 0.0,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.tavily.com/search",
+          "timeout_used": 20
+        },
+        "parallel": {
+          "accuracy": 0.2267,
+          "avg_latency_ms": 2651,
+          "latency_p50_ms": 2550,
+          "latency_p95_ms": 4469,
+          "latency_p99_ms": 5751,
+          "total_cost_usd": 0.375,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.parallel.ai/v1beta/search",
+          "timeout_used": 30
+        },
+        "brave": {
+          "accuracy": 0.1867,
+          "avg_latency_ms": 774,
+          "latency_p50_ms": 735,
+          "latency_p95_ms": 1090,
+          "latency_p99_ms": 1141,
+          "total_cost_usd": 0.37,
+          "errors": 1,
+          "timeouts": 0,
+          "endpoint": "https://api.search.brave.com/res/v1/web/search",
+          "timeout_used": 20
+        },
+        "exa": {
+          "accuracy": 0.0,
+          "avg_latency_ms": 3269,
+          "latency_p50_ms": 2687,
+          "latency_p95_ms": 5884,
+          "latency_p99_ms": 7805,
+          "total_cost_usd": 0.75,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.exa.ai/answer",
+          "timeout_used": 30
+        }
+      },
+      "error_breakdown": {
+        "brave": [
+          {
+            "error": "Client error '429 Too Many Requests' for url 'https://api.search.brave.com/res/v1/web/search?q=In%20what%20year%20was...",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-01-11T19:17:58.940673+00:00",
+      "query_set": "hard",
+      "n_queries": 75,
+      "judge_model": "gpt-4o-mini",
+      "results": {
+        "linkup": {
+          "accuracy": 0.7333,
+          "avg_latency_ms": 3574,
+          "latency_p50_ms": 3434,
+          "latency_p95_ms": 4379,
+          "latency_p99_ms": 5772,
+          "total_cost_usd": 0.4125,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.linkup.so/v1/search",
+          "timeout_used": 25
+        },
+        "tavily": {
+          "accuracy": 0.36,
+          "avg_latency_ms": 322,
+          "latency_p50_ms": 316,
+          "latency_p95_ms": 431,
+          "latency_p99_ms": 530,
+          "total_cost_usd": 0.0,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.tavily.com/search",
+          "timeout_used": 20
+        },
+        "parallel": {
+          "accuracy": 0.2933,
+          "avg_latency_ms": 2639,
+          "latency_p50_ms": 2583,
+          "latency_p95_ms": 4235,
+          "latency_p99_ms": 5530,
+          "total_cost_usd": 0.375,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.parallel.ai/v1beta/search",
+          "timeout_used": 30
+        },
+        "brave": {
+          "accuracy": 0.0933,
+          "avg_latency_ms": 365,
+          "latency_p50_ms": 348,
+          "latency_p95_ms": 501,
+          "latency_p99_ms": 726,
+          "total_cost_usd": 0.22,
+          "errors": 31,
+          "timeouts": 0,
+          "endpoint": "https://api.search.brave.com/res/v1/web/search",
+          "timeout_used": 20
+        },
+        "exa": {
+          "accuracy": 0.0,
+          "avg_latency_ms": 3135,
+          "latency_p50_ms": 2660,
+          "latency_p95_ms": 4406,
+          "latency_p99_ms": 11364,
+          "total_cost_usd": 0.75,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.exa.ai/answer",
+          "timeout_used": 30
+        }
+      },
+      "error_breakdown": {
+        "brave": [
+          {
+            "error": "Client error '429 Too Many Requests' for url 'https://api.search.brave.com/res/v1/web/search?q=Which%20company%20acqu...",
+            "count": 8
+          },
+          {
+            "error": "Client error '429 Too Many Requests' for url 'https://api.search.brave.com/res/v1/web/search?q=In%20what%20year%20was...",
+            "count": 8
+          },
+          {
+            "error": "Client error '429 Too Many Requests' for url 'https://api.search.brave.com/res/v1/web/search?q=Which%20RFC%20defines%...",
+            "count": 7
+          }
+        ]
+      }
     }
   ],
   "timeout_events": []

@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.scripts]
-searchbench = "searchbench.cli:app"
+searchbench = "searchbench.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
