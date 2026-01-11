@@ -67,6 +67,142 @@
           "timeout_used": 25
         }
       }
+    },
+    {
+      "date": "2026-01-11T10:25:08.970214+00:00",
+      "query_set": "public",
+      "n_queries": 10,
+      "judge_model": "gpt-4o-mini",
+      "results": {
+        "exa": {
+          "accuracy": 0.9,
+          "avg_latency_ms": 2807,
+          "latency_p50_ms": 2711,
+          "latency_p95_ms": 3717,
+          "latency_p99_ms": 3933,
+          "total_cost_usd": 0.1,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.exa.ai/answer",
+          "timeout_used": 30
+        },
+        "tavily": {
+          "accuracy": 0.9,
+          "avg_latency_ms": 1415,
+          "latency_p50_ms": 1300,
+          "latency_p95_ms": 2078,
+          "latency_p99_ms": 2445,
+          "total_cost_usd": 0.0,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.tavily.com/search",
+          "timeout_used": 20
+        },
+        "parallel": {
+          "accuracy": 0.7,
+          "avg_latency_ms": 2967,
+          "latency_p50_ms": 2941,
+          "latency_p95_ms": 4086,
+          "latency_p99_ms": 4375,
+          "total_cost_usd": 0.05,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.parallel.ai/v1beta/search",
+          "timeout_used": 30
+        },
+        "brave": {
+          "accuracy": 0.6,
+          "avg_latency_ms": 722,
+          "latency_p50_ms": 694,
+          "latency_p95_ms": 902,
+          "latency_p99_ms": 1005,
+          "total_cost_usd": 0.05,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.search.brave.com/res/v1/web/search",
+          "timeout_used": 20
+        },
+        "linkup": {
+          "accuracy": 0.0,
+          "avg_latency_ms": null,
+          "latency_p50_ms": null,
+          "latency_p95_ms": null,
+          "latency_p99_ms": null,
+          "total_cost_usd": 0.0,
+          "errors": 10,
+          "timeouts": 0,
+          "endpoint": "https://api.linkup.so/v1/search",
+          "timeout_used": 25
+        }
+      }
+    },
+    {
+      "date": "2026-01-11T10:40:42.793986+00:00",
+      "query_set": "public",
+      "n_queries": 50,
+      "judge_model": "gpt-4o-mini",
+      "results": {
+        "exa": {
+          "accuracy": 0.94,
+          "avg_latency_ms": 2406,
+          "latency_p50_ms": 2291,
+          "latency_p95_ms": 3202,
+          "latency_p99_ms": 3648,
+          "total_cost_usd": 0.5,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.exa.ai/answer",
+          "timeout_used": 30
+        },
+        "tavily": {
+          "accuracy": 0.88,
+          "avg_latency_ms": 1142,
+          "latency_p50_ms": 1310,
+          "latency_p95_ms": 1540,
+          "latency_p99_ms": 1763,
+          "total_cost_usd": 0.0,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.tavily.com/search",
+          "timeout_used": 20
+        },
+        "parallel": {
+          "accuracy": 0.74,
+          "avg_latency_ms": 2736,
+          "latency_p50_ms": 2751,
+          "latency_p95_ms": 3499,
+          "latency_p99_ms": 3767,
+          "total_cost_usd": 0.25,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.parallel.ai/v1beta/search",
+          "timeout_used": 30
+        },
+        "brave": {
+          "accuracy": 0.6,
+          "avg_latency_ms": 658,
+          "latency_p50_ms": 705,
+          "latency_p95_ms": 847,
+          "latency_p99_ms": 1024,
+          "total_cost_usd": 0.25,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.search.brave.com/res/v1/web/search",
+          "timeout_used": 20
+        },
+        "linkup": {
+          "accuracy": 0.0,
+          "avg_latency_ms": null,
+          "latency_p50_ms": null,
+          "latency_p95_ms": null,
+          "latency_p99_ms": null,
+          "total_cost_usd": 0.0,
+          "errors": 50,
+          "timeouts": 0,
+          "endpoint": "https://api.linkup.so/v1/search",
+          "timeout_used": 25
+        }
+      }
     }
   ],
   "timeout_events": []
