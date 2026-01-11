@@ -203,6 +203,75 @@
           "timeout_used": 25
         }
       }
+    },
+    {
+      "date": "2026-01-11T11:03:36.533942+00:00",
+      "query_set": "public",
+      "n_queries": 50,
+      "judge_model": "gpt-4o-mini",
+      "results": {
+        "linkup": {
+          "accuracy": 1.0,
+          "avg_latency_ms": 3495,
+          "latency_p50_ms": 3362,
+          "latency_p95_ms": 4613,
+          "latency_p99_ms": 4983,
+          "total_cost_usd": 0.275,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.linkup.so/v1/search",
+          "timeout_used": 25
+        },
+        "exa": {
+          "accuracy": 0.98,
+          "avg_latency_ms": 2518,
+          "latency_p50_ms": 2321,
+          "latency_p95_ms": 4219,
+          "latency_p99_ms": 4835,
+          "total_cost_usd": 0.5,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.exa.ai/answer",
+          "timeout_used": 30
+        },
+        "tavily": {
+          "accuracy": 0.86,
+          "avg_latency_ms": 462,
+          "latency_p50_ms": 275,
+          "latency_p95_ms": 1320,
+          "latency_p99_ms": 1396,
+          "total_cost_usd": 0.0,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.tavily.com/search",
+          "timeout_used": 20
+        },
+        "parallel": {
+          "accuracy": 0.68,
+          "avg_latency_ms": 2452,
+          "latency_p50_ms": 2496,
+          "latency_p95_ms": 3317,
+          "latency_p99_ms": 3519,
+          "total_cost_usd": 0.25,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.parallel.ai/v1beta/search",
+          "timeout_used": 30
+        },
+        "brave": {
+          "accuracy": 0.56,
+          "avg_latency_ms": 734,
+          "latency_p50_ms": 706,
+          "latency_p95_ms": 975,
+          "latency_p99_ms": 1190,
+          "total_cost_usd": 0.25,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.search.brave.com/res/v1/web/search",
+          "timeout_used": 20
+        }
+      },
+      "error_breakdown": {}
     }
   ],
   "timeout_events": []

@@ -101,6 +101,37 @@ def build_provider_summaries(
     return sorted(summaries, key=lambda s: s.accuracy, reverse=True)
 
 
+
+
+def build_error_breakdown(run: RunResult) -> dict[str, list[dict]]:
+    errors: dict[str, dict[str, int]] = {}
+    for item in run.results:
+        for provider_name, response in item.results.items():
+            if not response.error:
+                continue
+            key = _normalize_error_message(str(response.error))
+            errors.setdefault(provider_name, {})
+            errors[provider_name][key] = errors[provider_name].get(key, 0) + 1
+
+    breakdown: dict[str, list[dict]] = {}
+    for provider_name, counts in errors.items():
+        if not counts:
+            continue
+        sorted_items = sorted(counts.items(), key=lambda item: item[1], reverse=True)
+        breakdown[provider_name] = [
+            {"error": error, "count": count} for error, count in sorted_items[:3]
+        ]
+    return breakdown
+
+
+def _normalize_error_message(message: str, limit: int = 120) -> str:
+    cleaned = " ".join(message.split())
+    if "timeout" in cleaned.lower():
+        return "timeout"
+    if len(cleaned) > limit:
+        return cleaned[: limit - 3].rstrip() + "..."
+    return cleaned or "unknown error"
+
 def build_history_entry(
     graded: GradedRun,
     query_set: str,
@@ -129,6 +160,8 @@ def build_history_entry(
             "endpoint": summary.endpoint or "",
             "timeout_used": summary.timeout_used,
         }
+
+    entry["error_breakdown"] = build_error_breakdown(run)
 
     timeout_events = []
     for item in graded.graded_queries:

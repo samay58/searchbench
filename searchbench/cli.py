@@ -11,7 +11,7 @@ from searchbench.config import load_settings, timeout_for, DEFAULT_CONFIG_PATH
 from searchbench.judge import Judge, grade_run
 from searchbench.providers import create_provider, list_providers
 from searchbench.queries import load_queries, sample_queries
-from searchbench.reporter import write_report, build_provider_summaries
+from searchbench.reporter import write_report, build_provider_summaries, build_error_breakdown
 from searchbench.runner import run_benchmark
 
 
@@ -52,6 +52,8 @@ def run(
     }
     summaries = build_provider_summaries(graded, provider_meta)
     _echo_summary_table(summaries)
+    error_breakdown = build_error_breakdown(graded.run)
+    _echo_error_table(_error_rows_from_summaries(summaries, error_breakdown))
     report_paths = write_report(
         graded=graded,
         query_set=queries,
@@ -87,6 +89,8 @@ def quick(
     }
     summaries = build_provider_summaries(graded, provider_meta)
     _echo_summary_table(summaries)
+    error_breakdown = build_error_breakdown(graded.run)
+    _echo_error_table(_error_rows_from_summaries(summaries, error_breakdown))
     report_paths = write_report(
         graded=graded,
         query_set=queries,
@@ -137,6 +141,10 @@ def summary() -> None:
     typer.echo(header)
     rows = _summary_rows_from_history(results)
     typer.echo(_render_table(SUMMARY_HEADERS, rows))
+    error_breakdown = latest.get("error_breakdown", {})
+    if isinstance(error_breakdown, dict) and error_breakdown:
+        error_rows = _error_rows_from_history(results, error_breakdown)
+        _echo_error_table(error_rows)
 
 
 @app.command()
@@ -243,6 +251,14 @@ def calibrate(
 
 
 SUMMARY_HEADERS = ["Provider", "Accuracy", "Avg Latency", "Total Cost", "Errors", "Timeouts"]
+ERROR_HEADERS = ["Provider", "Errors", "Timeouts", "Top Error"]
+
+
+def _echo_error_table(rows: list[list[str]]) -> None:
+    if not rows:
+        return
+    typer.echo("Errors")
+    typer.echo(_render_table(ERROR_HEADERS, rows))
 
 
 def _echo_summary_table(summaries) -> None:
@@ -272,6 +288,48 @@ def _summary_rows_from_summaries(summaries) -> list[list[str]]:
             ]
         )
     return rows
+
+
+def _error_rows_from_summaries(summaries, error_breakdown: dict) -> list[list[str]]:
+    rows: list[list[str]] = []
+    for summary in summaries:
+        if summary.errors == 0 and summary.timeouts == 0:
+            continue
+        top = _format_top_error(error_breakdown.get(summary.name, []))
+        rows.append([summary.name.title(), str(summary.errors), str(summary.timeouts), top])
+    return rows
+
+
+def _error_rows_from_history(results: dict, error_breakdown: dict) -> list[list[str]]:
+    rows: list[list[str]] = []
+    for provider, stats in results.items():
+        if not isinstance(stats, dict):
+            continue
+        errors = int(stats.get("errors", 0))
+        timeouts = int(stats.get("timeouts", 0))
+        if errors == 0 and timeouts == 0:
+            continue
+        top = _format_top_error(error_breakdown.get(provider, []))
+        rows.append([provider.title(), str(errors), str(timeouts), top])
+    return rows
+
+
+def _format_top_error(samples: list[dict]) -> str:
+    if not samples:
+        return "-"
+    top = samples[0]
+    message = str(top.get("error", "-"))
+    count = top.get("count")
+    if isinstance(count, int):
+        return f"{_truncate_cell(message)} ({count})"
+    return _truncate_cell(message)
+
+
+def _truncate_cell(text: str, limit: int = 60) -> str:
+    if len(text) <= limit:
+        return text
+    return text[: limit - 3].rstrip() + "..."
+
 
 
 def _summary_rows_from_history(results: dict) -> list[list[str]]:
