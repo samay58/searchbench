@@ -11,26 +11,28 @@ SearchBench is a lean, opinionated benchmark for evaluating search APIs with str
 
 ## Quickstart
 ```bash
-python -m venv .venv
-. .venv/bin/activate
-pip install -r requirements.txt
-pip install -e .
+python3 -m venv .venv
+./.venv/bin/python -m pip install -r requirements.txt
 
 cp .env.example .env
 # Add your API keys
 
-searchbench run
+./scripts/searchbench run
+# Optional: install CLI entrypoint
+# . .venv/bin/activate
+# python3 -m pip install -e .
+# searchbench run
 ```
 
 ## Core commands
 ```bash
-searchbench run
-searchbench quick
-searchbench history
-searchbench summary
-searchbench validate
-searchbench report
-searchbench calibrate
+./scripts/searchbench run
+./scripts/searchbench quick
+./scripts/searchbench history
+./scripts/searchbench summary
+./scripts/searchbench validate
+./scripts/searchbench report
+./scripts/searchbench calibrate
 ```
 
 ## Query sets
@@ -55,11 +57,11 @@ Reports and history are written to:
 ## Configuration
 Timeouts live in `config.toml` and can be recalibrated from history:
 ```bash
-searchbench calibrate
-searchbench calibrate --apply
+./scripts/searchbench calibrate
+./scripts/searchbench calibrate --apply
 ```
 
 ## Tests
 ```bash
-python -m unittest
+./.venv/bin/python -m unittest discover -s tests
 ```

@@ -4,20 +4,20 @@
 `searchbench/cli.py` is the CLI entry point (installed as the `searchbench` command). Core logic lives in `searchbench/` (`providers/`, `runner.py`, `judge.py`, `queries/`, `reporter.py`). Reports and history are written to `results/`. Configuration templates live in `.env.example`, and timeouts in `config.toml`. Dependencies are pinned in `requirements.txt`.
 
 ## Build, Test, and Development Commands
-- `pip install -r requirements.txt` - install runtime dependencies.
-- `pip install -e .` - install the `searchbench` CLI locally.
-- `searchbench run` - full evaluation run using the public query set.
-- `searchbench quick` - 10-query smoke check.
-- `searchbench history` - list recent benchmark runs.
-- `searchbench summary` - show the latest run summary table.
-- `searchbench report` - open the latest HTML report.
-- `searchbench calibrate` - suggest timeouts from historical latency data.
+- `./.venv/bin/python -m pip install -r requirements.txt` - install runtime dependencies.
+- `./scripts/searchbench run` - full evaluation run using the public query set.
+- `./scripts/searchbench quick` - 10-query smoke check.
+- `./scripts/searchbench history` - list recent benchmark runs.
+- `./scripts/searchbench summary` - show the latest run summary table.
+- `./scripts/searchbench report` - open the latest HTML report.
+- `./scripts/searchbench calibrate` - suggest timeouts from historical latency data.
+- Optional: `python3 -m pip install -e .` to enable the `searchbench` CLI.
 
 ## Coding Style & Naming Conventions
 Use 4-space indentation and standard Python naming: `snake_case` for functions and variables, `CapWords` for classes. Keep type hints where present and follow existing async patterns (`async def`, `await`). When adding providers, implement `Provider` from `searchbench/providers/base.py` and register via `@register`.
 
 ## Testing Guidelines
-Run tests with `python -m unittest`. Validate changes with the CLI using `searchbench quick` before running a full benchmark.
+Run tests with `./.venv/bin/python -m unittest discover -s tests`. Validate changes with the CLI using `./scripts/searchbench quick` before running a full benchmark.
 
 ## Commit & Pull Request Guidelines
 Commit messages are short and imperative; many use a lightweight scope prefix like `docs:` or `cli:`. For PRs, include a clear summary, commands run, and any new env vars added to `.env.example`. Attach a screenshot or pasted output for UI or visualization changes.

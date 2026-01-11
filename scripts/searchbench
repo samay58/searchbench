@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+VENV="$ROOT/.venv"
+PY="$VENV/bin/python"
+
+if [[ ! -x "$PY" ]]; then
+  echo "Missing venv at $VENV."
+  echo "Create one with: python3 -m venv .venv"
+  echo "Then install deps: $VENV/bin/python -m pip install -r requirements.txt"
+  exit 1
+fi
+
+cd "$ROOT"
+exec "$PY" -m searchbench.cli "$@"
