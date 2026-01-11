@@ -19,6 +19,8 @@ from searchbench.runner import RunResult, QueryResult
 load_dotenv()
 
 DEFAULT_JUDGE_CONCURRENCY = int(os.getenv("JUDGE_CONCURRENCY", "6"))
+EVIDENCE_MODES = {"strict", "min", "off"}
+
 
 
 @dataclass(frozen=True)
@@ -338,6 +340,21 @@ class Judge:
         return False
 
 
+def _apply_evidence_mode(
+    evidence: EvidenceRequirement | None,
+    mode: str,
+) -> EvidenceRequirement | None:
+    if mode not in EVIDENCE_MODES:
+        mode = "strict"
+    if mode == "off":
+        return None
+    if mode == "min":
+        if not evidence:
+            return None
+        return EvidenceRequirement(min_citations=evidence.min_citations)
+    return evidence
+
+
 @dataclass(frozen=True)
 class GradedQuery:
     query: Query
@@ -354,9 +371,9 @@ class GradedRun:
 async def grade_run(
     judge: Judge,
     run: RunResult,
+    evidence_mode: str = "strict",
     max_concurrency: int | None = None,
 ) -> GradedRun:
-    graded: list[GradedQuery] = []
     limit = max_concurrency or DEFAULT_JUDGE_CONCURRENCY
     semaphore = asyncio.Semaphore(max(1, limit))
 
@@ -365,13 +382,14 @@ async def grade_run(
         response: SearchResult,
         query: Query,
     ) -> tuple[str, JudgeResult]:
+        evidence = _apply_evidence_mode(query.evidence, evidence_mode)
         async with semaphore:
             result = await judge.grade_text(
                 query.text,
                 query.expected,
                 response.answer or "",
                 response.citations,
-                query.evidence,
+                evidence,
             )
         return provider_name, result
 

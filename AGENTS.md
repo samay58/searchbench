@@ -12,6 +12,7 @@
 - `./scripts/searchbench summary` - show the latest run summary table.
 - `./scripts/searchbench report` - open the latest HTML report.
 - `./scripts/searchbench calibrate` - suggest timeouts from historical latency data.
+- `./scripts/searchbench debug --provider exa --queries hard --count 5` - dump raw provider responses for diagnostics.
 - Optional: `python3 -m pip install -e .` to enable the `searchbench` CLI.
 
 ## Coding Style & Naming Conventions

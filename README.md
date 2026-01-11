@@ -33,6 +33,7 @@ cp .env.example .env
 ./scripts/searchbench validate
 ./scripts/searchbench report
 ./scripts/searchbench calibrate
+./scripts/searchbench debug --provider exa --queries hard --count 5
 ```
 
 ## Query sets
@@ -47,6 +48,9 @@ Run the evidence-gated hard set:
 ```bash
 ./scripts/searchbench run --queries hard
 ./scripts/searchbench summary
+
+# Evidence modes: strict (default), min (citations only), off (ignore evidence)
+./scripts/searchbench run --queries hard --evidence min
 ```
 
 ## Results
@@ -71,6 +75,7 @@ Optional environment knobs:
 - `JUDGE_CONCURRENCY` (default 6) caps concurrent judge calls.
 ```bash
 ./scripts/searchbench calibrate
+./scripts/searchbench debug --provider exa --queries hard --count 5
 ./scripts/searchbench calibrate --apply
 ```
 

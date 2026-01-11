@@ -24,6 +24,7 @@ class ProviderSummary:
     timeouts: int
     endpoint: str | None
     timeout_used: int | None
+    evidence_pass_rate: float | None
 
 
 @dataclass(frozen=True)
@@ -40,6 +41,7 @@ def write_report(
     provider_meta: dict[str, dict[str, object]],
     output_dir: Path,
     summaries: list[ProviderSummary] | None = None,
+    evidence_mode: str = "strict",
 ) -> ReportPaths:
     output_dir.mkdir(parents=True, exist_ok=True)
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -50,13 +52,13 @@ def write_report(
     history.setdefault("runs", [])
     history.setdefault("timeout_events", [])
     history_entry, timeout_events = build_history_entry(
-        graded, query_set, judge_model, summaries
+        graded, query_set, judge_model, summaries, evidence_mode
     )
     history["runs"].append(history_entry)
     history["timeout_events"].extend(timeout_events)
     history_path.write_text(json.dumps(history, indent=2))
 
-    html_text = render_html(graded, query_set, judge_model, summaries, history["runs"])
+    html_text = render_html(graded, query_set, judge_model, summaries, history["runs"], evidence_mode)
     latest_path = output_dir / "latest.html"
     dated_path = output_dir / f"{date_str}.html"
     latest_path.write_text(html_text)
@@ -72,11 +74,17 @@ def build_provider_summaries(
     run = graded.run
     totals: dict[str, int] = {name: 0 for name in run.providers}
     passes: dict[str, int] = {name: 0 for name in run.providers}
+    evidence_totals: dict[str, int] = {name: 0 for name in run.providers}
+    evidence_passes: dict[str, int] = {name: 0 for name in run.providers}
     for item in graded.graded_queries:
         for provider_name, judgment in item.judgments.items():
             totals[provider_name] += 1
             if judgment.passed:
                 passes[provider_name] += 1
+            if judgment.evidence_passed is not None:
+                evidence_totals[provider_name] += 1
+                if judgment.evidence_passed:
+                    evidence_passes[provider_name] += 1
 
     summaries: list[ProviderSummary] = []
     for provider_name in run.providers:
@@ -96,6 +104,11 @@ def build_provider_summaries(
                 timeouts=stats.timeouts if stats else 0,
                 endpoint=str(meta.get("endpoint")) if meta.get("endpoint") else None,
                 timeout_used=int(meta["timeout"]) if meta.get("timeout") else None,
+                evidence_pass_rate=(
+                    (evidence_passes[provider_name] / evidence_totals[provider_name])
+                    if evidence_totals[provider_name]
+                    else None
+                ),
             )
         )
     return sorted(summaries, key=lambda s: s.accuracy, reverse=True)
@@ -137,6 +150,7 @@ def build_history_entry(
     query_set: str,
     judge_model: str,
     summaries: Iterable[ProviderSummary],
+    evidence_mode: str,
 ) -> tuple[dict, list[dict]]:
     run = graded.run
     timeout_lookup = {summary.name: summary.timeout_used for summary in summaries}
@@ -145,6 +159,7 @@ def build_history_entry(
         "query_set": query_set,
         "n_queries": run.query_count,
         "judge_model": judge_model,
+        "evidence_mode": evidence_mode,
         "results": {},
     }
     for summary in summaries:
@@ -159,6 +174,8 @@ def build_history_entry(
             "timeouts": summary.timeouts,
             "endpoint": summary.endpoint or "",
             "timeout_used": summary.timeout_used,
+            "evidence_pass_rate": (round(summary.evidence_pass_rate, 4)
+                                     if summary.evidence_pass_rate is not None else None),
         }
 
     entry["error_breakdown"] = build_error_breakdown(run)
@@ -185,25 +202,36 @@ def render_html(
     judge_model: str,
     summaries: list[ProviderSummary],
     history_runs: list[dict],
+    evidence_mode: str,
 ) -> str:
     run = graded.run
     winner = summaries[0].name if summaries else None
     safe = html.escape
 
+    show_evidence = any(summary.evidence_pass_rate is not None for summary in summaries)
+    evidence_header = "<th>Evidence Pass</th>" if show_evidence else ""
+
     summary_rows = []
     for summary in summaries:
         cls = "winner" if summary.name == winner else ""
+        evidence_cell = (
+            f"<td>{_format_pct_or_dash(summary.evidence_pass_rate)}</td>"
+            if show_evidence
+            else ""
+        )
         summary_rows.append(
             f"<tr class=\"{cls}\">"
             f"<td>{safe(summary.name.title())}</td>"
             f"<td>{_format_pct(summary.accuracy)}</td>"
             f"<td>{_format_latency(summary.avg_latency_ms)}</td>"
-            f"<td>{_format_cost(summary.total_cost_usd)}</td>"
+            + evidence_cell
+            + f"<td>{_format_cost(summary.total_cost_usd)}</td>"
             f"<td>{summary.errors}</td>"
             f"</tr>"
         )
 
     trend_rows = []
+
     for summary in summaries:
         trend_rows.append(
             "<div class=\"trend\">"
@@ -253,8 +281,8 @@ def render_html(
         "Latency is measured from request initiation to response completion. Costs are calculated using published "
         "pricing as of the report date."
     )
-    if has_evidence:
-        methodology += " Evidence gating is enforced for this run (citations and domain requirements)."
+    if has_evidence and evidence_mode != "off":
+        methodology += f" Evidence mode: {evidence_mode}."
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -465,6 +493,7 @@ def render_html(
               <th>Provider</th>
               <th>Accuracy</th>
               <th>Avg Latency</th>
+              {evidence_header}
               <th>Total Cost</th>
               <th>Errors</th>
             </tr>
@@ -548,6 +577,12 @@ def _format_evidence(evidence) -> str:
     if not parts:
         return ""
     return "Evidence: " + "; ".join(parts)
+
+def _format_pct_or_dash(value: float | None) -> str:
+    if value is None:
+        return "-"
+    return f"{value * 100:.0f}%"
+
 
 def _format_pct(value: float) -> str:
     return f"{value * 100:.0f}%"

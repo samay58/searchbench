@@ -11,14 +11,29 @@ from searchbench.providers.base import Provider, SearchResult
 
 def _normalize_citations(raw: object) -> list[str]:
     if isinstance(raw, list):
-        return [str(c) for c in raw if c]
+        citations: list[str] = []
+        for item in raw:
+            if isinstance(item, dict):
+                url = item.get("url") or item.get("id") or item.get("source")
+                if url:
+                    citations.append(str(url))
+            else:
+                citations.append(str(item))
+        return [c for c in citations if c]
     if isinstance(raw, dict):
         flattened: list[str] = []
         for value in raw.values():
             if isinstance(value, list):
-                flattened.extend(str(c["url"]) if isinstance(c, dict) and "url" in c else str(c) for c in value if c)
+                for entry in value:
+                    if isinstance(entry, dict):
+                        url = entry.get("url") or entry.get("id") or entry.get("source")
+                        if url:
+                            flattened.append(str(url))
+                    else:
+                        flattened.append(str(entry))
         return [c for c in flattened if c]
     return []
+
 
 
 @register
