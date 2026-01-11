@@ -1,0 +1,7 @@
+[timeouts]
+default = 30
+exa = 30
+parallel = 30
+brave = 20
+linkup = 25
+tavily = 20

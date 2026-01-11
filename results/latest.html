@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SearchBench Results - 2026-01-11</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #121826;
+      --panel-2: #0f141f;
+      --border: #273044;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #f97316;
+      --success: #22c55e;
+      --warning: #eab308;
+      --error: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino", "Georgia", "Times New Roman", serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1b2436 0, transparent 60%),
+                  linear-gradient(180deg, #0b0f14 0%, #0a0d12 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      padding: 3.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: "Gill Sans", "Trebuchet MS", "Verdana", sans-serif;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+      font-size: clamp(2rem, 3vw, 3rem);
+    }
+    header p {
+      color: var(--muted);
+      margin: 0;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+    section {
+      margin-bottom: 2.5rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+    h2 {
+      font-family: "Gill Sans", "Trebuchet MS", "Verdana", sans-serif;
+      margin-top: 0;
+      font-size: 1.4rem;
+      letter-spacing: 0.02em;
+    }
+    .table-wrap {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    th {
+      color: var(--muted);
+      font-weight: 600;
+    }
+    tr.winner td:first-child {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .trends {
+      display: grid;
+      gap: 1rem;
+    }
+    .trend {
+      display: grid;
+      grid-template-columns: 140px 1fr 80px;
+      align-items: center;
+      gap: 1rem;
+      background: var(--panel-2);
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .trend-name {
+      font-family: "Gill Sans", "Trebuchet MS", "Verdana", sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+    }
+    .trend-score {
+      text-align: right;
+      font-weight: 600;
+    }
+    .query-card {
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .query-meta {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .query-text {
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .expected {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .answers {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .answer-row {
+      display: grid;
+      grid-template-columns: 110px 110px 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      padding: 0.5rem 0.75rem;
+      border-radius: 10px;
+      background: rgba(15, 19, 32, 0.8);
+      border: 1px solid transparent;
+    }
+    .provider {
+      font-weight: 600;
+    }
+    .verdict {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .verdict-correct, .verdict-plausible {
+      color: var(--success);
+    }
+    .verdict-incorrect, .verdict-implausible {
+      color: var(--error);
+    }
+    .verdict-unknown {
+      color: var(--warning);
+    }
+    .answer {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding-bottom: 2.5rem;
+    }
+    @media (max-width: 720px) {
+      .trend {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .trend-score {
+        text-align: left;
+      }
+      .answer-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SearchBench Results</h1>
+    <p>2026-01-11 | 10 queries | 5 providers | public</p>
+  </header>
+  <main>
+    <section>
+      <h2>Summary</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Accuracy</th>
+              <th>Avg Latency</th>
+              <th>Total Cost</th>
+              <th>Errors</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner"><td>Exa</td><td>100%</td><td>2.4s</td><td>$0.10</td><td>0</td></tr><tr class=""><td>Tavily</td><td>100%</td><td>1.3s</td><td>$0.00</td><td>0</td></tr><tr class=""><td>Brave</td><td>60%</td><td>0.7s</td><td>$0.05</td><td>0</td></tr><tr class=""><td>Parallel</td><td>60%</td><td>2.6s</td><td>$0.05</td><td>0</td></tr><tr class=""><td>Linkup</td><td>0%</td><td>-</td><td>$0.00</td><td>10</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section>
+      <h2>Performance Over Time</h2>
+      <div class="trends">
+        <div class="trend"><div class="trend-name">Exa</div><div class="sparkline">Not enough history</div><div class="trend-score">100%</div></div><div class="trend"><div class="trend-name">Tavily</div><div class="sparkline">Not enough history</div><div class="trend-score">100%</div></div><div class="trend"><div class="trend-name">Brave</div><div class="sparkline">Not enough history</div><div class="trend-score">60%</div></div><div class="trend"><div class="trend-name">Parallel</div><div class="sparkline">Not enough history</div><div class="trend-score">60%</div></div><div class="trend"><div class="trend-name">Linkup</div><div class="sparkline">Not enough history</div><div class="trend-score">0%</div></div>
+      </div>
+    </section>
+    <section>
+      <h2>Methodology</h2>
+      <p>This benchmark ran 10 curated questions across 5 providers. Answers were graded by gpt-4o-mini using binary correct/incorrect scoring with semantic equivalence. Latency is measured from request initiation to response completion. Costs are calculated using published pricing as of the report date.</p>
+      <details>
+        <summary>Provider configurations</summary>
+        <ul>
+          <li><strong>Exa:</strong> https://api.exa.ai/answer, 30s</li><li><strong>Tavily:</strong> https://api.tavily.com/search, 20s</li><li><strong>Brave:</strong> https://api.search.brave.com/res/v1/web/search, 20s</li><li><strong>Parallel:</strong> https://api.parallel.ai/v1beta/search, 30s</li><li><strong>Linkup:</strong> https://api.linkup.so/v1/search, 25s</li>
+        </ul>
+      </details>
+    </section>
+    <section>
+      <h2>Query Details</h2>
+      <details>
+        <summary>Show all 10 results</summary>
+        <div class="query-card"><div class="query-meta"><span class="qid">obscure_07</span><span class="category">obscure</span></div><div class="query-text">What is the boundary between Earth&#x27;s crust and mantle called?</div><div class="expected">Expected: Mohorovicic discontinuity (Moho).</div><div class="answers"><div class="answer-row"><div class="provider">Brave</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The &lt;strong&gt;Mohorovičić discontinuity&lt;/strong&gt; (/ˌmoʊhəˈroʊvɪtʃɪtʃ/ MOH-hə-ROH-vih-chitch; Croatian: [moxorôʋiːtʃitɕ]) – usually called the Moho discontinuity, Moho boundary, or just Moho – is the boundary between the...</div></div><div class="answer-row"><div class="provider">Exa</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The boundary between Earth’s crust and mantle is the Mohorovičić discontinuity, commonly called the Moho. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Mohorovi%C4%8Di%C4%87_discontinuity))</div></div><div class="answer-row"><div class="provider">Linkup</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer"></div></div><div class="answer-row"><div class="provider">Parallel</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Section Title: Mohorovičić discontinuity Content: The **Mohorovičić discontinuity** ( [/ ˌ m oʊ h ə ˈ r oʊ v ɪ tʃ ɪ tʃ /](/wiki/Help:IPA/English &quot;Help:IPA/English&quot;) [*MOH -hə- ROH -vih-chitch*](/wiki/Help:Pronunciatio...</div></div><div class="answer-row"><div class="provider">Tavily</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The boundary between Earth&#x27;s crust and mantle is called the Mohorovičić Discontinuity, commonly known as the Moho. It marks a change in seismic wave speeds.</div></div></div></div><div class="query-card"><div class="query-meta"><span class="qid">current_06</span><span class="category">current</span></div><div class="query-text">Who is the CEO of Amazon as of 2025?</div><div class="expected">Expected: Andy Jassy.</div><div class="answers"><div class="answer-row"><div class="provider">Brave</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">As CEO of Amazon, &lt;strong&gt;Jassy&lt;/strong&gt; received a ten year pay package totaling $212.7 million. The majority of the compensation package is in stock and vests over 10 years. He held more than 2.160 million common sh...</div></div><div class="answer-row"><div class="provider">Exa</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Andy Jassy is the chief executive officer of Amazon as of 2025 (confirmed in the April 10 2025 shareholder‑letter article). ([cnbc.com](https://www.cnbc.com/2025/04/10/amazon-ceo-andy-jassys-2025-shareholder-letter.ht...</div></div><div class="answer-row"><div class="provider">Linkup</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer"></div></div><div class="answer-row"><div class="provider">Parallel</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Section Title: Andy Jassy &gt; References Content: [&quot;Amazon CEO Andy Jassy&#x27;s total compensation package topped $212 million&quot;](https://edition.cnn.com/2022/04/01/tech/andy-jassy-amazon-ceo-pay/index.html) . *CNN Internati...</div></div><div class="answer-row"><div class="provider">Tavily</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">As of 2025, Andy Jassy is the CEO of Amazon. He has led the company through significant changes and innovations.</div></div></div></div><div class="query-card"><div class="query-meta"><span class="qid">multi_14</span><span class="category">multi-hop</span></div><div class="query-text">The author of &quot;Pride and Prejudice&quot; died in which English city?</div><div class="expected">Expected: Winchester.</div><div class="answers"><div class="answer-row"><div class="provider">Brave</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Jane Austen (born December 16, 1775, Steventon, Hampshire, England—died July 18, 1817, &lt;strong&gt;Winchester, Hampshire&lt;/strong&gt;) was an English writer who first gave the novel its distinctly modern character through her...</div></div><div class="answer-row"><div class="provider">Exa</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Winchester. ([encyclopedia.com](https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/austen-jane-1775-1817), [notablebiographies.com](https://www.notablebiographies.com/An-Ba/Austen-Jane.html))</div></div><div class="answer-row"><div class="provider">Linkup</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer"></div></div><div class="answer-row"><div class="provider">Parallel</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer">Section Title: Jane Austen &gt; External links &gt; Exhibits Content: &quot;Love, Lies and Lizzie&quot;)* (2009) *[Pride and Prejudice and Zombies](/wiki/Pride_and_Prejudice_and_Zombies &quot;Pride and Prejudice and Zombies&quot;)* (2009 parod...</div></div><div class="answer-row"><div class="provider">Tavily</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Jane Austen, author of Pride and Prejudice, died in Winchester in 1817. She was 41 years old.</div></div></div></div><div class="query-card"><div class="query-meta"><span class="qid">factual_04</span><span class="category">factual</span></div><div class="query-text">Where is the headquarters of the World Health Organization located (city and country)?</div><div class="expected">Expected: Geneva, Switzerland.</div><div class="answers"><div class="answer-row"><div class="provider">Brave</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The World Health Organization (WHO) is a specialized agency of the United Nations which coordinates responses to international public health issues and emergencies. It is headquartered in &lt;strong&gt;Geneva, Switzerland&lt;/...</div></div><div class="answer-row"><div class="provider">Exa</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The World Health Organization’s headquarters are in Geneva, Switzerland. ([worldatlas.com](https://www.worldatlas.com/articles/where-is-the-headquarters-of-who-located.html), [who.int](https://www.who.int/switzerland/...</div></div><div class="answer-row"><div class="provider">Linkup</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer"></div></div><div class="answer-row"><div class="provider">Parallel</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Section Title: Where we work &gt; A global presence that puts countries at the centre of our work Content: From our longstanding Geneva headquarters to our 6 regional offices, 150 country offices and other offices around...</div></div><div class="answer-row"><div class="provider">Tavily</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The headquarters of the World Health Organization is in Geneva, Switzerland. It has regional offices and field offices worldwide.</div></div></div></div><div class="query-card"><div class="query-meta"><span class="qid">obscure_06</span><span class="category">obscure</span></div><div class="query-text">What is the term for the formation of new blood vessels from existing ones?</div><div class="expected">Expected: Angiogenesis.</div><div class="answers"><div class="answer-row"><div class="provider">Brave</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer">Angiogenesis continues the growth of the vasculature mainly by processes of sprouting and splitting, but processes such as &lt;strong&gt;coalescent angiogenesis&lt;/strong&gt;, vessel elongation and vessel cooption also play a ro...</div></div><div class="answer-row"><div class="provider">Exa</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Angiogenesis is the process by which new blood vessels form from pre‑existing vessels. ([britannica.com](https://www.britannica.com/science/angiogenesis), [my.clevelandclinic.org](https://my.clevelandclinic.org/health...</div></div><div class="answer-row"><div class="provider">Linkup</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer"></div></div><div class="answer-row"><div class="provider">Parallel</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer">Section Title: Angiogenesis &gt; ... &gt; Sprouting and intussusceptive angiogenesis &gt; Angiogenesis vs. vasculogenesis Content: Angiogenesis and vasculogenesis are both medical terms that refer to the formation of new blood...</div></div><div class="answer-row"><div class="provider">Tavily</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The term for the formation of new blood vessels from existing ones is angiogenesis. It is crucial for tissue growth and healing. Angiogenesis inhibitors block this process to treat cancer.</div></div></div></div><div class="query-card"><div class="query-meta"><span class="qid">factual_14</span><span class="category">factual</span></div><div class="query-text">Who is the author of &quot;1984&quot;, and which country was he from?</div><div class="expected">Expected: George Orwell, United Kingdom.</div><div class="answers"><div class="answer-row"><div class="provider">Brave</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer">Nineteen Eighty-Four (also published as 1984) is a dystopian speculative fiction novel by the English writer &lt;strong&gt;George Orwell&lt;/strong&gt;. It was published on 8 June 1949 by Secker &amp;amp; Warburg as Orwell&amp;#x27;s nin...</div></div><div class="answer-row"><div class="provider">Exa</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">George Orwell, a British (United Kingdom) author, wrote “1984.” ([Wikipedia](https://en.wikipedia.org/wiki/George_Orwell), [Library of Congress](https://id.loc.gov/authorities/names/n82094035.html))</div></div><div class="answer-row"><div class="provider">Linkup</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer"></div></div><div class="answer-row"><div class="provider">Parallel</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer">Section Title: George Orwell &gt; External links Content: Collectivism](/wiki/The_Theory_and_Practice_of_Oligarchical_Collectivism &quot;The Theory and Practice of Oligarchical Collectivism&quot;)* [Two Minutes Hate](/wiki/Two_Min...</div></div><div class="answer-row"><div class="provider">Tavily</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The author of &quot;1984&quot; is George Orwell, who was born in England.</div></div></div></div><div class="query-card"><div class="query-meta"><span class="qid">obscure_10</span><span class="category">obscure</span></div><div class="query-text">What is the SI unit of catalytic activity?</div><div class="expected">Expected: katal.</div><div class="answers"><div class="answer-row"><div class="provider">Brave</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The &lt;strong&gt;katal (symbol: kat)&lt;/strong&gt; is a unit of the International System of Units (SI) used for quantifying the catalytic activity of enzymes (that is, measuring the enzymatic activity level in enzyme catalysis)...</div></div><div class="answer-row"><div class="provider">Exa</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The SI unit of catalytic activity is the katal (kat), defined as 1 mol s⁻¹. ([goldbook.iupac.org](https://goldbook.iupac.org/terms/view/K03372), [en.wikipedia.org](https://en.wikipedia.org/wiki/Katal))</div></div><div class="answer-row"><div class="provider">Linkup</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer"></div></div><div class="answer-row"><div class="provider">Parallel</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Section Title: Katal Content: The **katal** (symbol: **kat** ) is a unit of the [International System of Units](/wiki/International_System_of_Units &quot;International System of Units&quot;) (SI) [[ 1 ]](:1-1) used for [quantif...</div></div><div class="answer-row"><div class="provider">Tavily</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">The SI unit of catalytic activity is the katal, symbolized as kat, equivalent to one mole per second.</div></div></div></div><div class="query-card"><div class="query-meta"><span class="qid">current_02</span><span class="category">current</span></div><div class="query-text">Who is the CEO of Apple as of 2025?</div><div class="expected">Expected: Tim Cook.</div><div class="answers"><div class="answer-row"><div class="provider">Brave</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer">&lt;strong&gt;Timothy Donald Cook&lt;/strong&gt; (born November 1, 1960) is an American business executive who is the current CEO of Apple. Cook had previously been the company&amp;#x27;s COO under its co-founder Steve Jobs. Cook joi...</div></div><div class="answer-row"><div class="provider">Exa</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Tim Cook was Apple’s chief executive officer in 2025. ([hollywoodreporter.com](https://www.hollywoodreporter.com/business/digital/apple-ceo-tim-cook-pay-falls-2025-retirement-rumors-1236467784), [apple.com](https://ww...</div></div><div class="answer-row"><div class="provider">Linkup</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer"></div></div><div class="answer-row"><div class="provider">Parallel</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Section Title: Executive Profiles &gt; Board of Directors Content: [Arthur D. Levinson](https://www.calicolabs.com/people/arthur-d-levinson)Chairman of the Board, AppleFounder and CEO Calico [Wanda Austin, Ph.D.](/newsro...</div></div><div class="answer-row"><div class="provider">Tavily</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">As of 2025, Tim Cook remains the CEO of Apple. His compensation for that year was $74.3 million. Cook has been leading Apple since 2011.</div></div></div></div><div class="query-card"><div class="query-meta"><span class="qid">current_09</span><span class="category">current</span></div><div class="query-text">Who is the Secretary-General of the United Nations as of 2025?</div><div class="expected">Expected: Antonio Guterres.</div><div class="answers"><div class="answer-row"><div class="provider">Brave</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">On 18 March 2025, &lt;strong&gt;Antonio Guterres&lt;/strong&gt; as United Nations Secretary-General said in a statement issued by his spokesperson that he is &amp;quot;shocked&amp;quot; by the Israeli attacks on the Gaza Strip, which hav...</div></div><div class="answer-row"><div class="provider">Exa</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">António Guterres is the Secretary‑General of the United Nations in 2025 (as of 15 January 2025). ([un.org](https://www.un.org/sg/en/about-secretary-general))</div></div><div class="answer-row"><div class="provider">Linkup</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer"></div></div><div class="answer-row"><div class="provider">Parallel</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Section Title: Secretary-General of the United Nations Content: [FAO](/wiki/Food_and_Agriculture_Organization &quot;Food and Agriculture Organization&quot;) **·** [IFAD](/wiki/International_Fund_for_Agricultural_Development &quot;In...</div></div><div class="answer-row"><div class="provider">Tavily</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">António Guterres is the Secretary-General of the United Nations as of 2025. His term ends in December 2026. A successor will be chosen for 2027.</div></div></div></div><div class="query-card"><div class="query-meta"><span class="qid">multi_05</span><span class="category">multi-hop</span></div><div class="query-text">Which company acquired Whole Foods, and who was that company&#x27;s CEO at the time of acquisition?</div><div class="expected">Expected: Amazon; Jeff Bezos.</div><div class="answers"><div class="answer-row"><div class="provider">Brave</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer">Mackey remains a member of the board of directors as of 2012. Whole Foods&amp;#x27;s current CEO is Jason Buechel. The company has created other controversies at various times involving business practices, labor issues, p...</div></div><div class="answer-row"><div class="provider">Exa</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Amazon acquired Whole Foods, and Amazon’s CEO at the time of the acquisition was Jeff Bezos. ([media.wholefoodsmarket.com](https://media.wholefoodsmarket.com/amazon-to-acquire-whole-foods-market))</div></div><div class="answer-row"><div class="provider">Linkup</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer"></div></div><div class="answer-row"><div class="provider">Parallel</div><div class="verdict verdict-incorrect">INCORRECT</div><div class="answer">Section Title: Amazon to Acquire Whole Foods Market Content: “Millions of people love Whole Foods Market because they offer the best natural and organic foods, and they make it fun to eat healthy,” said Jeff Bezos, Am...</div></div><div class="answer-row"><div class="provider">Tavily</div><div class="verdict verdict-correct">CORRECT</div><div class="answer">Amazon acquired Whole Foods in 2017. At the time, Jeff Bezos was Amazon&#x27;s CEO.</div></div></div></div>
+      </details>
+    </section>
+  </main>
+  <footer>
+    Generated by SearchBench
+  </footer>
+</body>
+</html>

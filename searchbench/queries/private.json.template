@@ -1,0 +1,18 @@
+{
+  "queries": [
+    {
+      "id": "private_01",
+      "query": "Who are the largest enterprise customers of [Company X]?",
+      "expected": null,
+      "category": "customer-intel",
+      "notes": "Grade on plausibility and citation quality."
+    },
+    {
+      "id": "private_02",
+      "query": "What were the terms of [Startup Y]'s Series B?",
+      "expected": null,
+      "category": "deal-terms",
+      "notes": "Often not public; test if API hallucinates."
+    }
+  ]
+}

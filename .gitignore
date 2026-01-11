@@ -28,3 +28,4 @@ sessions/
 *.log
 *.tmp
 .!*
+searchbench/queries/private.json

@@ -1,0 +1,73 @@
+{
+  "runs": [
+    {
+      "date": "2026-01-11T09:47:04.234260+00:00",
+      "query_set": "public",
+      "n_queries": 10,
+      "judge_model": "gpt-4o-mini",
+      "results": {
+        "exa": {
+          "accuracy": 1.0,
+          "avg_latency_ms": 2394,
+          "latency_p50_ms": 2395,
+          "latency_p95_ms": 2975,
+          "latency_p99_ms": 3051,
+          "total_cost_usd": 0.1,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.exa.ai/answer",
+          "timeout_used": 30
+        },
+        "tavily": {
+          "accuracy": 1.0,
+          "avg_latency_ms": 1268,
+          "latency_p50_ms": 1284,
+          "latency_p95_ms": 1380,
+          "latency_p99_ms": 1398,
+          "total_cost_usd": 0.0,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.tavily.com/search",
+          "timeout_used": 20
+        },
+        "brave": {
+          "accuracy": 0.6,
+          "avg_latency_ms": 705,
+          "latency_p50_ms": 694,
+          "latency_p95_ms": 760,
+          "latency_p99_ms": 769,
+          "total_cost_usd": 0.05,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.search.brave.com/res/v1/web/search",
+          "timeout_used": 20
+        },
+        "parallel": {
+          "accuracy": 0.6,
+          "avg_latency_ms": 2586,
+          "latency_p50_ms": 2370,
+          "latency_p95_ms": 3688,
+          "latency_p99_ms": 3810,
+          "total_cost_usd": 0.05,
+          "errors": 0,
+          "timeouts": 0,
+          "endpoint": "https://api.parallel.ai/v1beta/search",
+          "timeout_used": 30
+        },
+        "linkup": {
+          "accuracy": 0.0,
+          "avg_latency_ms": null,
+          "latency_p50_ms": null,
+          "latency_p95_ms": null,
+          "latency_p99_ms": null,
+          "total_cost_usd": 0.0,
+          "errors": 10,
+          "timeouts": 0,
+          "endpoint": "https://api.linkup.so/v1/search",
+          "timeout_used": 25
+        }
+      }
+    }
+  ],
+  "timeout_events": []
+}

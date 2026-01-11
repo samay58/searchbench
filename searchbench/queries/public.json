@@ -1,0 +1,304 @@
+{
+  "queries": [
+    {
+      "id": "factual_01",
+      "query": "What year was Stripe founded, and who were the co-founders?",
+      "expected": "Stripe was founded in 2010 by Patrick Collison and John Collison.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_02",
+      "query": "Which company acquired GitHub, and in what year?",
+      "expected": "Microsoft acquired GitHub in 2018.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_03",
+      "query": "What is the capital of Canada, and which province is it in?",
+      "expected": "Ottawa, Ontario.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_04",
+      "query": "Where is the headquarters of the World Health Organization located (city and country)?",
+      "expected": "Geneva, Switzerland.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_05",
+      "query": "What is the chemical formula for table salt, and which elements does it contain?",
+      "expected": "NaCl; sodium and chlorine.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_06",
+      "query": "Who wrote \"The Origin of Species\", and in what year was it first published?",
+      "expected": "Charles Darwin, 1859.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_07",
+      "query": "Which ocean is the deepest, and what is its deepest known point called?",
+      "expected": "Pacific Ocean, Challenger Deep.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_08",
+      "query": "What is the most populous U.S. state, and what is its capital?",
+      "expected": "California, Sacramento.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_09",
+      "query": "Which planet has the largest volcano in the solar system, and what is it called?",
+      "expected": "Mars, Olympus Mons.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_10",
+      "query": "What is the currency of Japan, and what is its ISO code?",
+      "expected": "Japanese yen, JPY.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_11",
+      "query": "Who painted the ceiling of the Sistine Chapel, and where is the chapel located?",
+      "expected": "Michelangelo, Vatican City.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_12",
+      "query": "What is the highest mountain in Africa, and which country is it in?",
+      "expected": "Mount Kilimanjaro, Tanzania.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_13",
+      "query": "What is the largest desert in the world, and is it hot or cold?",
+      "expected": "Antarctic Desert, cold.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_14",
+      "query": "Who is the author of \"1984\", and which country was he from?",
+      "expected": "George Orwell, United Kingdom.",
+      "category": "factual"
+    },
+    {
+      "id": "factual_15",
+      "query": "What is the longest river in Europe, and which country does it primarily flow through?",
+      "expected": "Volga River, Russia.",
+      "category": "factual"
+    },
+    {
+      "id": "multi_01",
+      "query": "LinkedIn was acquired by which company, and who was that company's CEO at the time of acquisition?",
+      "expected": "Microsoft; Satya Nadella.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_02",
+      "query": "Instagram was acquired by which company, and who was that company's CEO at the time?",
+      "expected": "Facebook; Mark Zuckerberg.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_03",
+      "query": "WhatsApp was acquired by which company, and who was WhatsApp's co-founder and CEO at the time?",
+      "expected": "Facebook; Jan Koum.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_04",
+      "query": "Pixar was acquired by which company, and who was Pixar's CEO at the time?",
+      "expected": "Disney; Steve Jobs.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_05",
+      "query": "Which company acquired Whole Foods, and who was that company's CEO at the time of acquisition?",
+      "expected": "Amazon; Jeff Bezos.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_06",
+      "query": "Which company acquired Twitch, and what is that company's cloud platform called?",
+      "expected": "Amazon; AWS.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_07",
+      "query": "The author of \"Zero to One\" co-founded which company that was later acquired by eBay?",
+      "expected": "PayPal.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_08",
+      "query": "Which company acquired Mojang, the studio behind Minecraft?",
+      "expected": "Microsoft.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_09",
+      "query": "The company that makes the iPhone acquired which headphone brand in 2014?",
+      "expected": "Beats Electronics.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_10",
+      "query": "Which company acquired GitHub, and who were the two founders of that acquiring company?",
+      "expected": "Microsoft; Bill Gates and Paul Allen.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_11",
+      "query": "Fitbit was acquired by which company, and which mobile OS is that company best known for?",
+      "expected": "Google; Android.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_12",
+      "query": "The founder of Amazon also founded which spaceflight company?",
+      "expected": "Blue Origin.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_13",
+      "query": "Which company acquired ZeniMax Media in 2020, and what flagship console does that company produce?",
+      "expected": "Microsoft; Xbox.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_14",
+      "query": "The author of \"Pride and Prejudice\" died in which English city?",
+      "expected": "Winchester.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "multi_15",
+      "query": "The composer of the \"Brandenburg Concertos\" was born in which German town?",
+      "expected": "Eisenach.",
+      "category": "multi-hop"
+    },
+    {
+      "id": "current_01",
+      "query": "Who is the CEO of OpenAI as of 2025?",
+      "expected": "Sam Altman.",
+      "category": "current"
+    },
+    {
+      "id": "current_02",
+      "query": "Who is the CEO of Apple as of 2025?",
+      "expected": "Tim Cook.",
+      "category": "current"
+    },
+    {
+      "id": "current_03",
+      "query": "Who is the CEO of Microsoft as of 2025?",
+      "expected": "Satya Nadella.",
+      "category": "current"
+    },
+    {
+      "id": "current_04",
+      "query": "Who is the CEO of Alphabet (Google) as of 2025?",
+      "expected": "Sundar Pichai.",
+      "category": "current"
+    },
+    {
+      "id": "current_05",
+      "query": "Who is the CEO of Meta as of 2025?",
+      "expected": "Mark Zuckerberg.",
+      "category": "current"
+    },
+    {
+      "id": "current_06",
+      "query": "Who is the CEO of Amazon as of 2025?",
+      "expected": "Andy Jassy.",
+      "category": "current"
+    },
+    {
+      "id": "current_07",
+      "query": "Who is the CEO of Tesla as of 2025?",
+      "expected": "Elon Musk.",
+      "category": "current"
+    },
+    {
+      "id": "current_08",
+      "query": "Who is the CEO of NVIDIA as of 2025?",
+      "expected": "Jensen Huang.",
+      "category": "current"
+    },
+    {
+      "id": "current_09",
+      "query": "Who is the Secretary-General of the United Nations as of 2025?",
+      "expected": "Antonio Guterres.",
+      "category": "current"
+    },
+    {
+      "id": "current_10",
+      "query": "Who is the Prime Minister of the United Kingdom as of 2025?",
+      "expected": "Keir Starmer.",
+      "category": "current"
+    },
+    {
+      "id": "obscure_01",
+      "query": "What is the name of the theorem stating that no consistent system can prove its own consistency?",
+      "expected": "Godel's second incompleteness theorem.",
+      "category": "obscure"
+    },
+    {
+      "id": "obscure_02",
+      "query": "What is the name of the effect where a rotating massive body drags spacetime around it?",
+      "expected": "Lense-Thirring effect.",
+      "category": "obscure"
+    },
+    {
+      "id": "obscure_03",
+      "query": "What is the name of the C60 carbon molecule shaped like a soccer ball?",
+      "expected": "Buckminsterfullerene.",
+      "category": "obscure"
+    },
+    {
+      "id": "obscure_04",
+      "query": "What is the name of the radiation emitted when a charged particle moves faster than light through a medium?",
+      "expected": "Cherenkov radiation.",
+      "category": "obscure"
+    },
+    {
+      "id": "obscure_05",
+      "query": "What is the name of the compression algorithm used by PNG and gzip?",
+      "expected": "DEFLATE.",
+      "category": "obscure"
+    },
+    {
+      "id": "obscure_06",
+      "query": "What is the term for the formation of new blood vessels from existing ones?",
+      "expected": "Angiogenesis.",
+      "category": "obscure"
+    },
+    {
+      "id": "obscure_07",
+      "query": "What is the boundary between Earth's crust and mantle called?",
+      "expected": "Mohorovicic discontinuity (Moho).",
+      "category": "obscure"
+    },
+    {
+      "id": "obscure_08",
+      "query": "What is the name of the curve traced by a point on a rolling circle?",
+      "expected": "Cycloid.",
+      "category": "obscure"
+    },
+    {
+      "id": "obscure_09",
+      "query": "What is the effect where a superconductor expels magnetic fields?",
+      "expected": "Meissner effect.",
+      "category": "obscure"
+    },
+    {
+      "id": "obscure_10",
+      "query": "What is the SI unit of catalytic activity?",
+      "expected": "katal.",
+      "category": "obscure"
+    }
+  ]
+}
